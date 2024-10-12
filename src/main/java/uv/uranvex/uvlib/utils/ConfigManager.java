@@ -2,7 +2,7 @@ package uv.uranvex.uvlib.utils;
 
 import lombok.Getter;
 import org.bukkit.configuration.file.YamlConfiguration;
-import uv.uranvex.uvlib.UVLib;
+import uv.uranvex.uvlib.Main;
 
 import java.io.File;
 import java.util.HashMap;
@@ -18,10 +18,10 @@ public class ConfigManager {
         for (String fileName: fileNames) {
             fileName = fileName + ".yml";
 
-            File file = new File(UVLib.instance.getDataFolder().getAbsolutePath() + "/" + fileName);
+            File file = new File(Main.instance.getDataFolder().getAbsolutePath() + "/" + fileName);
 
             if (!file.exists()) {
-                UVLib.instance.saveResource(fileName, false);
+                Main.instance.saveResource(fileName, false);
             }
 
             configs.put(fileName, YamlConfiguration.loadConfiguration(file));
@@ -33,4 +33,3 @@ public class ConfigManager {
     }
 
 }
-
